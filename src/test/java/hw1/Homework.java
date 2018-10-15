@@ -18,7 +18,7 @@ public class Homework {
 
 
     @Test
-    public void homework() {
+    public void checkMainPage() {
         setProperty("webriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
 
         //1 Open BR
@@ -45,7 +45,6 @@ public class Homework {
         assertEquals(driver.getTitle(), "Home Page");
 
         //6 Assert that there are 4 items on the header section are displayed and they have proper texts
-
         //check item "HOME"
         WebElement item = driver.findElement(By.xpath(".//ul[contains(@class,'m-l8')]//a[contains(@href, 'index')]"));
         assertEquals("HOME", item.getText());
