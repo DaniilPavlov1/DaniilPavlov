@@ -1,7 +1,5 @@
 package hw1;
 
-
-
 import DataForTests.DataForBenefits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
+
 import static java.lang.System.setProperty;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
@@ -20,7 +19,7 @@ public class Homework {
 
     @Test
     public void homework() {
-       setProperty("webriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        setProperty("webriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
 
         //1 Open BR
         WebDriver driver = new ChromeDriver();
@@ -43,23 +42,23 @@ public class Homework {
         assertEquals(userName.getText(), "PITER CHAILOVSKII");
 
         //5 Assert Browser title
-        assertEquals(driver.getTitle(),"Home Page");
+        assertEquals(driver.getTitle(), "Home Page");
 
         //6 Assert that there are 4 items on the header section are displayed and they have proper texts
 
-            //check item "HOME"
+        //check item "HOME"
         WebElement item = driver.findElement(By.xpath(".//ul[contains(@class,'m-l8')]//a[contains(@href, 'index')]"));
         assertEquals("HOME", item.getText());
 
-            //check item "CONTACT FORM"
+        //check item "CONTACT FORM"
         item = driver.findElement(By.xpath(".//ul[contains(@class,'m-l8')]//a[contains(@href, 'contacts')]"));
         assertEquals("CONTACT FORM", item.getText());
 
-            //check item "SERVICE"
+        //check item "SERVICE"
         item = driver.findElement(By.xpath(".//ul[contains(@class,'m-l8')]//a[contains(@class, 'dropdown')]"));
         assertEquals("SERVICE", item.getText());
 
-            //check item "METALS & COLORS"
+        //check item "METALS & COLORS"
         item = driver.findElement(By.xpath(".//ul[contains(@class,'m-l8')]//a[contains(@href, 'metals')]"));
         assertEquals("METALS & COLORS", item.getText());
 
@@ -87,11 +86,11 @@ public class Homework {
         assertEquals(DataForBenefits.BASE.getClaim(), txt.getText());
 
         //9 Assert a text of the main header
-            //check title of the main header
+        //check title of the main header
         WebElement title = driver.findElement(By.xpath(".//main//h3[contains(@class,'title')]"));
-        Assert.assertTrue( title.isDisplayed());
+        Assert.assertTrue(title.isDisplayed());
         assertEquals("EPAM FRAMEWORK WISHES…", title.getText());
-            //check text block of the main header
+        //check text block of the main header
         String contentMainHeader = "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.";
         WebElement textMainHeader = driver.findElement(By.xpath(".//main//p[contains(@class,'txt')]"));
         Assert.assertTrue(textMainHeader.isDisplayed());
@@ -110,10 +109,10 @@ public class Homework {
         driver.switchTo().window(currentWindow);
 
         //13 Assert a text of the sub header
-        assertEquals("JDI GITHUB" ,(driver.findElement(By.xpath(".//main//h3[@class='text-center']")).getText()));
+        assertEquals("JDI GITHUB", (driver.findElement(By.xpath(".//main//h3[@class='text-center']")).getText()));
 
         //14 Assert that JDI GITHUB is a link and has a proper URL
-        assertEquals("https://github.com/epam/JDI" , driver.findElement(By.xpath(".//main//h3[@class='text-center']/a")).getAttribute("href"));
+        assertEquals("https://github.com/epam/JDI", driver.findElement(By.xpath(".//main//h3[@class='text-center']/a")).getAttribute("href"));
 
 
         //15 Assert that there is Left Section
@@ -126,7 +125,5 @@ public class Homework {
         //17 Close Browser
         driver.close();
     }
-
-
 }
 
