@@ -47,7 +47,6 @@ public class SimpleTest {
         //6 Assert Browser title
         assertEquals(driver.getTitle(),"Home Page");
 
-
         driver.close();
     }
 }
