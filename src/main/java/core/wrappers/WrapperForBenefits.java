@@ -38,7 +38,7 @@ public class WrapperForBenefits {
         checkerForBenefits.checkElementText(element.findElement(By.xpath(".//span[@class='benefit-txt']")));
         return this;
     }
-    public static void isAllTextsChecked() {
+    public static void checkAllTextsChecked() {
         checkerForBenefits.isAllElementsChecked();
     }
 

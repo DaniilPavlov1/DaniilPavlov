@@ -15,7 +15,7 @@ public class Homework extends TestBase {
 
 
     @Test
-    public void homework() throws Exception {
+    public void homework() {
         //1 Open test site by URL
         init();
         MainPage mainPage = new MainPage(driver);
@@ -43,9 +43,9 @@ public class Homework extends TestBase {
             i.checkBenefitIconDisplayed();
 
             //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
-            i.checkBenefitIconDisplayed().checkBenefitTextRight();
+            i.checkBenefitTextRight();
         }
-        WrapperForBenefits.isAllTextsChecked();
+        WrapperForBenefits.checkAllTextsChecked();
 
         //9 Assert a text of the main header
         mainPage.checkMainHeaderTitleDisplayed().checkMainHeaderTitleContentRigth();
