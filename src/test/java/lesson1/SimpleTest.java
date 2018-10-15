@@ -4,17 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.System.setProperty;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class SimpleTest {
 
@@ -31,7 +27,7 @@ public class SimpleTest {
         driver.navigate().to("https://epam.github.io/JDI/index.html");
 
         //3 Assert Title
-        Assert.assertEquals(driver.getTitle(), "Home Page");
+        assertEquals(driver.getTitle(), "Home Page");
 
         //4 Login
         driver.findElement(By.cssSelector(".profile-photo")).click();
