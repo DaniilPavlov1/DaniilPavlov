@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class HomeworkWithAnnotations {
-    private WebDriver driver = new ChromeDriver();
+    private WebDriver driver;
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
