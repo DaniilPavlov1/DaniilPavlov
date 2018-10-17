@@ -41,7 +41,7 @@ public class SimpleTest {
         assertEquals(userName.getText(), "PITER USER_NAME");
 
         //6 Assert Browser title
-        assertEquals(driver.getTitle(),"Home Page");
+        assertEquals(driver.getTitle(), "Home Page");
 
         driver.close();
     }

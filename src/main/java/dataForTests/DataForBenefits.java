@@ -1,4 +1,4 @@
-package DataForTests;
+package dataForTests;
 
 public enum DataForBenefits {
     PRACTICE("To include good practices\n" +

@@ -1,6 +1,6 @@
 package hw1;
 
-import DataForTests.DataForBenefits;
+import dataForTests.DataForBenefits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -120,6 +120,8 @@ public class HomeworkWithSoft {
 
         //16 Assert that there is Footer
         softAssert.assertTrue(driver.findElement(By.cssSelector("footer")).isDisplayed());
+
+        softAssert.assertAll();
 
         //17 Close Browser
         driver.close();

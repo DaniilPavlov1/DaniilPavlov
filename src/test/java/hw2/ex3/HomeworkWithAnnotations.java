@@ -1,11 +1,10 @@
 package hw2.ex3;
 
-import DataForTests.DataForBenefits;
+import dataForTests.DataForBenefits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.*;
 
 import static java.lang.System.setProperty;
