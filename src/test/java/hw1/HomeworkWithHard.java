@@ -19,7 +19,7 @@ public class HomeworkWithHard {
 
     @Test
     public void checkMainPage() {
-        setProperty("webriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
 
         //1 Open BR
         WebDriver driver = new ChromeDriver();

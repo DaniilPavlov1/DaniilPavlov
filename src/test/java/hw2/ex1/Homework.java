@@ -10,13 +10,16 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.System.setProperty;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class Homework {
 
+
     @Test(dataProvider = "benefitsDataProvider", dataProviderClass = DataProviders.class)
     public void checkMainPage(String locator, String text) {
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
 
         //1 Open BR
         WebDriver driver = new ChromeDriver();

@@ -18,7 +18,7 @@ public class TwoRegressionAndOneSmoke {
 
     @Test(groups = "Regression")
     public void checkMainPage1() {
-        setProperty("webriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
 
         //1 Open BR
         WebDriver driver = new ChromeDriver();
@@ -126,7 +126,7 @@ public class TwoRegressionAndOneSmoke {
 
     @Test(groups = "Regression")
     public void checkMainPage2() {
-        setProperty("webriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
 
         //1 Open BR
         WebDriver driver = new ChromeDriver();
@@ -234,7 +234,7 @@ public class TwoRegressionAndOneSmoke {
 
     @Test(groups = "Smoke")
     public void checkMainPage3() {
-        setProperty("webriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
 
         //1 Open BR
         WebDriver driver = new ChromeDriver();
