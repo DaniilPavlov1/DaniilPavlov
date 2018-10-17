@@ -145,7 +145,6 @@ public class HomeworkWithAnnotations {
 
         //16 Assert that there is Footer
         assertTrue(driver.findElement(By.cssSelector("footer")).isDisplayed());
-
     }
 }
 
