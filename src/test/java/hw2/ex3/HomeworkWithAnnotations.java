@@ -53,7 +53,7 @@ public class HomeworkWithAnnotations {
         driver.navigate().to("https://epam.github.io/JDI/index.html");
 
         //2 Assert Browser title
-        Assert.assertEquals(driver.getTitle(), "Home Page");
+        assertEquals(driver.getTitle(), "Home Page");
 
         //3 Perform login
         driver.findElement(By.cssSelector(".profile-photo")).click();
