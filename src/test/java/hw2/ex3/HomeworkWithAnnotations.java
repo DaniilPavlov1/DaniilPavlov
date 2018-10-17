@@ -17,7 +17,7 @@ public class HomeworkWithAnnotations {
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
-       // setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+       setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
     }
 
     @BeforeClass(alwaysRun = true)
@@ -146,8 +146,6 @@ public class HomeworkWithAnnotations {
         //16 Assert that there is Footer
         assertTrue(driver.findElement(By.cssSelector("footer")).isDisplayed());
 
-        //17 Close Browser
-        driver.close();
     }
 }
 
