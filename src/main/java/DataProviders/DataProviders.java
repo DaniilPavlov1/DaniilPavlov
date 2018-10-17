@@ -18,10 +18,10 @@ public class DataProviders {
     @DataProvider(parallel = true)
     public Object[][] benefitsDataProvider() {
         return new Object[][]{
-                {".//div[child::span[contains(@class, 'practise')]]", DataForBenefits.PRACTICE.getClaim()},
-                {".//div[child::span[contains(@class, 'custom')]]",DataForBenefits.CUSTOM.getClaim()},
-                {".//div[child::span[contains(@class, 'multi')]]",DataForBenefits.MULTI.getClaim()},
-                {".//div[child::span[contains(@class, 'base')]]",DataForBenefits.BASE.getClaim()}
+                {"practise", DataForBenefits.PRACTICE.getClaim()},
+                {"custom",DataForBenefits.CUSTOM.getClaim()},
+                {"multi",DataForBenefits.MULTI.getClaim()},
+                {"base",DataForBenefits.BASE.getClaim()}
         };
     }
 }

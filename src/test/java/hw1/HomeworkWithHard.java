@@ -113,10 +113,8 @@ public class HomeworkWithHard {
         //14 Assert that JDI GITHUB is a link and has a proper URL
         assertEquals("https://github.com/epam/JDI", driver.findElement(By.xpath(".//main//h3[@class='text-center']/a")).getAttribute("href"));
 
-
         //15 Assert that there is Left Section
         Assert.assertTrue(driver.findElement(By.xpath(".//div[@name='navigation-sidebar']")).isDisplayed());
-
 
         //16 Assert that there is Footer
         assertTrue(driver.findElement(By.cssSelector("footer")).isDisplayed());

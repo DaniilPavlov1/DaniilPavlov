@@ -18,7 +18,7 @@ public class Homework {
 
 
     @Test(dataProvider = "benefitsDataProvider", dataProviderClass = DataProviders.class)
-    public void checkMainPage(String locator, String text) {
+    public void checkMainPage(String type, String text) {
         setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
 
         //1 Open BR
@@ -28,10 +28,10 @@ public class Homework {
         driver.navigate().to("https://epam.github.io/JDI/index.html");
 
         //2 Assert that there are 4 images on the Index Page and they are displayed
-        assertTrue(driver.findElement(By.xpath(locator)).isDisplayed());
+        assertTrue(driver.findElement(By.xpath(".//div[child::span[contains(@class, '" + type + "')]]")).isDisplayed());
 
         //3 Assert that there are 4 texts on the Index Page under icons and they have proper text
-        WebElement txt = driver.findElement(By.xpath(locator + "/parent::div/span"));
+        WebElement txt = driver.findElement(By.xpath(".//div[child::span[contains(@class, '" + type + "')]]/parent::div/span"));
         assertTrue(txt.isDisplayed());
         assertEquals(text, txt.getText());
 
