@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 import static java.lang.System.setProperty;
+import static org.testng.Assert.*;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -87,22 +88,22 @@ public class HomeworkWithHard {
         //9 Assert a text of the main header
         //check title of the main header
         WebElement title = driver.findElement(By.xpath(".//main//h3[contains(@class,'title')]"));
-        Assert.assertTrue(title.isDisplayed());
+        assertTrue(title.isDisplayed());
         assertEquals("EPAM FRAMEWORK WISHES…", title.getText());
         //check text block of the main header
         String contentMainHeader = "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.";
         WebElement textMainHeader = driver.findElement(By.xpath(".//main//p[contains(@class,'txt')]"));
-        Assert.assertTrue(textMainHeader.isDisplayed());
+        assertTrue(textMainHeader.isDisplayed());
         assertEquals(contentMainHeader, textMainHeader.getText());
 
         //10 Assert that there is the iframe in the center of page
-        Assert.assertTrue(driver.findElement(By.cssSelector("iframe")) != null);
+        assertTrue(driver.findElement(By.cssSelector("iframe")) != null);
 
         //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
         String currentWindow = driver.getWindowHandle();
         driver.switchTo().frame("iframe");
-        Assert.assertTrue(driver.findElement(By.xpath(".//div[@class='epam-logo']//img")) != null);
-        Assert.assertTrue(driver.findElement(By.xpath(".//div[@class='epam-logo']//img")).isDisplayed());
+        assertTrue(driver.findElement(By.xpath(".//div[@class='epam-logo']//img")) != null);
+        assertTrue(driver.findElement(By.xpath(".//div[@class='epam-logo']//img")).isDisplayed());
 
         //12 Switch to original window back
         driver.switchTo().window(currentWindow);
@@ -114,7 +115,7 @@ public class HomeworkWithHard {
         assertEquals("https://github.com/epam/JDI", driver.findElement(By.xpath(".//main//h3[@class='text-center']/a")).getAttribute("href"));
 
         //15 Assert that there is Left Section
-        Assert.assertTrue(driver.findElement(By.xpath(".//div[@name='navigation-sidebar']")).isDisplayed());
+        assertTrue(driver.findElement(By.xpath(".//div[@name='navigation-sidebar']")).isDisplayed());
 
         //16 Assert that there is Footer
         assertTrue(driver.findElement(By.cssSelector("footer")).isDisplayed());
