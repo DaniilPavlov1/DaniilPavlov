@@ -41,7 +41,7 @@ public class SimpleTestPageObject extends TestBase {
     @Test(groups = "Group1")
     public void simpleTest() {
         //2 Navigate
-        driver.navigate().to("https://epam.github.io/JDI/index.html");
+
 
         //3 Assert Title
         assertEquals(driver.getTitle(), "Home Page");
