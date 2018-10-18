@@ -24,7 +24,7 @@ public class HomePageContentTestSuit {
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite() {
-        //  setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
     }
 
     @BeforeClass(alwaysRun = true)
