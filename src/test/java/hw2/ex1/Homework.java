@@ -21,7 +21,7 @@ public class Homework {
 
     @Test(dataProvider = "benefitsDataProvider", dataProviderClass = DataProviders.class)
     public void checkMainPage(String text) {
-       // setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
 
         //1 Open BR
         WebDriver driver = new ChromeDriver();
