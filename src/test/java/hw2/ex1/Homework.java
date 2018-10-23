@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static java.lang.System.setProperty;

@@ -1,6 +1,6 @@
 package hw2.ex3;
 
-import dataForTests.DataForBenefits;
+import enums.mainPageEnums.Benefits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -94,19 +94,19 @@ public class HomeworkWithAnnotations {
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
         WebElement txt = driver.findElement(By.xpath(".//div[child::span[contains(@class, 'practise')]]/parent::div/span"));
         assertTrue(txt.isDisplayed());
-        assertEquals(DataForBenefits.PRACTICE.getClaim(), txt.getText());
+        assertEquals(Benefits.PRACTICE.text, txt.getText());
 
         txt = driver.findElement(By.xpath(".//div[child::span[contains(@class, 'custom')]]/parent::div/span"));
         assertTrue(txt.isDisplayed());
-        assertEquals(DataForBenefits.CUSTOM.getClaim(), txt.getText());
+        assertEquals(Benefits.CUSTOM.text, txt.getText());
 
         txt = driver.findElement(By.xpath(".//div[child::span[contains(@class, 'multi')]]/parent::div/span"));
         assertTrue(txt.isDisplayed());
-        assertEquals(DataForBenefits.MULTI.getClaim(), txt.getText());
+        assertEquals(Benefits.MULTI.text, txt.getText());
 
         txt = driver.findElement(By.xpath(".//div[child::span[contains(@class, 'base')]]/parent::div/span"));
         assertTrue(txt.isDisplayed());
-        assertEquals(DataForBenefits.BASE.getClaim(), txt.getText());
+        assertEquals(Benefits.BASE.text, txt.getText());
 
         //9 Assert a text of the main header
         //check title of the main header

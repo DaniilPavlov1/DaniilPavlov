@@ -1,22 +1,28 @@
 package pageObject;
 
-import enums.Links;
-import enums.PageTitles;
-import enums.Urls;
-import enums.Users;
 import enums.mainPageEnums.Benefits;
-import enums.mainPageEnums.Items;
-import enums.mainPageEnums.Texts;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class HomePage {
+public class HomePageSelenide {
+
+    //================================texts===================================
+
+    private final String HOME_PAGE_URL = "https://epam.github.io/JDI/index.html";
+    private final String PAGE_TITLE = "Home Page";
+    private final String USER_NAME = "PITER CHAILOVSKII";
+    private final String MAIN_CONTENT = "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.";
+    private final String TITLE_CONTENT = "EPAM FRAMEWORK WISHES…";
+    private final String SUB_HEADER_CONTENT = "JDI GITHUB";
+    private final String SUB_HEADER_LINK_URL = "https://github.com/epam/JDI";
 
     //================================single elements===================================
 
@@ -61,20 +67,23 @@ public class HomePage {
 
     //================================lists of elements===================================
 
-    @FindBy(xpath = "//ul[contains(@class,'m-l8')]/li/a")
+    @FindBy(xpath = ".//ul[contains(@class,'m-l8')]/li/a")
     private List<WebElement> itemsInHeaderSection;
 
-
-    @FindBy(xpath = "//div[@class = 'benefit-icon']")
+    @FindAll({
+            @FindBy(xpath = ".//div[@class = 'benefit-icon']")
+    })
     private List<WebElement> imagesOnTheHomePage;
 
-    @FindBy(xpath = "//span[@class = 'benefit-txt']")
+    @FindAll({
+            @FindBy(xpath = ".//span[@class = 'benefit-txt']")
+    })
     private List<WebElement> textsOnTheHomePage;
 
     //================================methods===================================
 
     public void open(WebDriver driver) {
-        driver.get(Urls.HOME_PAGE_URL.url);
+        driver.get(HOME_PAGE_URL);
     }
 
     public void login(String name, String passwd) {
@@ -95,27 +104,27 @@ public class HomePage {
     //================================checks===================================
 
     public void checkTitle(WebDriver driver) {
-        assertEquals(driver.getTitle(), PageTitles.HOME_PAGE.text);
+        assertEquals(driver.getTitle(), PAGE_TITLE);
     }
 
     public void checkMainText() {
         //check title in main header
         assertTrue(titleOfMainHeader.isDisplayed());
-        assertEquals(Texts.TITLE_CONTENT.text, titleOfMainHeader.getText());
+        assertEquals(TITLE_CONTENT, titleOfMainHeader.getText());
 
         //check text in main header
         assertTrue(mainText.isDisplayed());
-        assertEquals(Texts.MAIN_CONTENT.text, mainText.getText());
+        assertEquals(MAIN_CONTENT, mainText.getText());
     }
 
     public void checkUserLoggedIn() {
         assertTrue(userProfile.isDisplayed());
-        assertEquals(userProfile.getText(), Users.PITER_CHALOVSKII.name);
+        assertEquals(userProfile.getText(), USER_NAME);
     }
 
     public void checkItemsInHeaderSection() {
-
-        List<String> content = Items.getList();
+        String[] str = {"HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"};
+        List<String> content = Arrays.asList(str);
         assertEquals(itemsInHeaderSection.size(), 4);
         for (WebElement item : itemsInHeaderSection) {
             assertTrue(content.contains(item.getText()));
@@ -146,11 +155,11 @@ public class HomePage {
     }
 
     public void checkSubHeaderTextIsProper() {
-        assertEquals(subHeader.getText(), Links.SUB_HEADER_LINK_URL.text);
+        assertEquals(subHeader.getText(), SUB_HEADER_CONTENT);
     }
 
     public void checkSubHeaderLinkIsProper() {
-        assertEquals(subHeaderLink.getAttribute("href"), Links.SUB_HEADER_LINK_URL.url);
+        assertEquals(subHeaderLink.getAttribute("href"), SUB_HEADER_LINK_URL);
     }
 
     public void checkLeftSectionIsDisplayed() {

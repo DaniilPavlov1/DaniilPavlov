@@ -1,7 +1,7 @@
 package dataProviders;
 
 
-import dataForTests.DataForBenefits;
+import enums.mainPageEnums.Benefits;
 import org.testng.annotations.DataProvider;
 
 public class DataProviders {
@@ -18,9 +18,9 @@ public class DataProviders {
     @DataProvider(parallel = true)
     public Object[] benefitsDataProvider() {
         return new Object[]
-                {DataForBenefits.PRACTICE.getClaim(),
-                        DataForBenefits.CUSTOM.getClaim(),
-                        DataForBenefits.MULTI.getClaim(),
-                        DataForBenefits.BASE.getClaim()};
+                {Benefits.PRACTICE.text,
+                        Benefits.CUSTOM.text,
+                        Benefits.MULTI.text,
+                        Benefits.BASE.text};
     }
 }

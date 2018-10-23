@@ -1,10 +1,7 @@
 package hw3.ex1;
 
-import base.TestBase;
-import dataForTests.DataForBenefits;
-import org.openqa.selenium.By;
+import enums.Users;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.*;
@@ -12,10 +9,7 @@ import pageObject.HomePage;
 
 import java.util.concurrent.TimeUnit;
 
-import static java.lang.System.currentTimeMillis;
 import static java.lang.System.setProperty;
-import static org.testng.Assert.assertTrue;
-import static org.testng.AssertJUnit.assertEquals;
 
 public class HomePageContentTestSuit {
 
@@ -32,7 +26,6 @@ public class HomePageContentTestSuit {
         driver = new ChromeDriver();
         homePage = PageFactory.initElements(driver, HomePage.class);
     }
-
 
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
@@ -56,7 +49,7 @@ public class HomePageContentTestSuit {
         homePage.checkTitle(driver);
 
         //3 Perform login
-        homePage.login("epam", "1234");
+        homePage.login(Users.PITER_CHALOVSKII.login, Users.PITER_CHALOVSKII.password);
 
         //4 Assert User name in the left-top side of screen that user is loggined
         homePage.checkUserLoggedIn();
