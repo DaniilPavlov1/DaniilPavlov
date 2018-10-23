@@ -64,7 +64,6 @@ public class HomePage {
     @FindBy(xpath = "//ul[contains(@class,'m-l8')]/li/a")
     private List<WebElement> itemsInHeaderSection;
 
-
     @FindBy(xpath = "//div[@class = 'benefit-icon']")
     private List<WebElement> imagesOnTheHomePage;
 
