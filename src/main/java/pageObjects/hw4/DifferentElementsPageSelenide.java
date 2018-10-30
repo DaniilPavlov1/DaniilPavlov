@@ -14,7 +14,8 @@ import static com.codeborne.selenide.Condition.visible;
 import static enums.ServiceCategories.DIFFERENT;
 
 
-public class DifferentElementsPageSelenide extends LogsSelenide {
+public class DifferentElementsPageSelenide {
+    private final LogsSelenide logsSelenide = new LogsSelenide();
 
     //================================single elements===================================
 
@@ -60,33 +61,25 @@ public class DifferentElementsPageSelenide extends LogsSelenide {
 
     //================================methods selecting elements===================================
 
-    //Method for selecting conditions in checkbox like: Earth, Water, Wind, Fire
-
     public void selectConditionInCheckbox(CheckBoxConditions element) {
         checkBoxElements.find(text(element.name)).click();
-        testLogs.addFirst(element.generateLog(true));
+        logsSelenide.addLog(element.generateLog(true));
     }
-
-    //Method for unselecting conditions in checkbox like: Earth, Water, Wind, Fire
 
     public void unselectConditionInCheckbox(CheckBoxConditions element) {
         checkBoxElements.find(text(element.name)).click();
-        testLogs.addFirst(element.generateLog(false));
+        logsSelenide.addLog(element.generateLog(false));
     }
-
-    //Method for selecting values in radiobutton like: Selen, Bronze, Gold, Silver
 
     public void selectRadioButtonValue(RadioButtonValues element) {
         radioButtonElements.find(text(element.name)).click();
-        testLogs.addFirst(element.generateLog());
+        logsSelenide.addLog(element.generateLog());
     }
-
-    //Method for selecting colors in dropdown like: Yellow, Blue, Red, Green
 
     public void selectColorInDropDown(DropdownColors color) {
         colorsDropDownMenu.click();
         dropDownMenuOptions.find(text(color.name)).click();
-        testLogs.addFirst(color.generateLog());
+        logsSelenide.addLog(color.generateLog());
     }
 
     //================================checks===================================
@@ -106,4 +99,7 @@ public class DifferentElementsPageSelenide extends LogsSelenide {
         buttonElements.shouldHave(size(2));
     }
 
+    public void checkLogsCorrect() {
+        logsSelenide.checkLogsCorrect();
+    }
 }

@@ -58,10 +58,10 @@ public class HomePageSelenide {
         open(HOME_PAGE_URL.url);
     }
 
-    public void login(String name, String passwd) {
+    public void login() {
         profileButton.click();
-        login.sendKeys(name);
-        password.sendKeys(passwd);
+        login.sendKeys(PITER_CHALOVSKII.login);
+        password.sendKeys(PITER_CHALOVSKII.password);
         submit.click();
     }
 

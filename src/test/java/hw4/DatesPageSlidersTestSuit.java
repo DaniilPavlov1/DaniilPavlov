@@ -3,11 +3,10 @@ package hw4;
 import base.SelenideTestBase;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.hw4.HomePageSelenide;
 import pageObjects.hw4.DatesPageSelenide;
+import pageObjects.hw4.HomePageSelenide;
 
 import static com.codeborne.selenide.Selenide.page;
-import static enums.Users.PITER_CHALOVSKII;
 
 
 public class DatesPageSlidersTestSuit extends SelenideTestBase {
@@ -28,7 +27,7 @@ public class DatesPageSlidersTestSuit extends SelenideTestBase {
         homePageSelenide.checkTitle();
 
         //3 Perform login
-        homePageSelenide.login(PITER_CHALOVSKII.login, PITER_CHALOVSKII.password);
+        homePageSelenide.login();
 
         //4 Assert User name in the left-top side of screen that user is logged
         homePageSelenide.checkUserLoggedIn();

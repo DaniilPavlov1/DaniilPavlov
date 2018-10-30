@@ -13,9 +13,12 @@ import static org.testng.AssertJUnit.assertEquals;
 public class LogsSelenide {
 
     //Collection for reference logs
-    protected Deque<String> testLogs = new ArrayDeque<>();
+    private Deque<String> testLogs = new ArrayDeque<>();
 
     //================================checks===================================
+    public void addLog(String log){
+        testLogs.addFirst(log);
+    }
 
     public void checkLogsCorrect() {
         //Get list with logs on the page

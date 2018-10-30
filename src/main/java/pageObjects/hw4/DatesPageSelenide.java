@@ -10,7 +10,9 @@ import static enums.datesPageSelenideEnums.Logs.FROM;
 import static enums.datesPageSelenideEnums.Logs.TO;
 
 
-public class DatesPageSelenide extends LogsSelenide {
+public class DatesPageSelenide {
+
+    private final LogsSelenide logsSelenide = new LogsSelenide();
 
     //================================single elements===================================
 
@@ -38,31 +40,24 @@ public class DatesPageSelenide extends LogsSelenide {
 
     public void dragAndDropLeftSlider(double to) {
         dragAndDrop(to, leftSlider);
-        testLogs.addFirst(FROM.generateLog((int) to));
+        logsSelenide.addLog(FROM.generateLog((int) to));
     }
 
     public void dragAndDropRightSlider(double to) {
         dragAndDrop(to, rightSlider);
-        testLogs.addFirst(TO.generateLog((int) to));
+        logsSelenide.addLog(TO.generateLog((int) to));
     }
 
     private void dragAndDrop(double to, SelenideElement slider) {
-        //Create example of class Actions
         Actions actions = new Actions(getWebDriver());
-
-        //Get width slider's track
         int size = sliderTrack.getSize().width;
-
-        //Get current position of slider
         double position = Double.parseDouble(slider.getCssValue("left").replaceAll("px", ""));
-
-        //Covert incoming value to pixels and subtract current position
         Double vector = (to / 100) * size - position;
-
-        //Convert Double to Int
         int xOffset = vector.intValue() - 1;
-
-        //Drag slider to required position
         actions.dragAndDropBy(slider, xOffset, 0).perform();
+    }
+
+    public void checkLogsCorrect() {
+        logsSelenide.checkLogsCorrect();
     }
 }

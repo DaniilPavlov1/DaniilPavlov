@@ -7,7 +7,6 @@ import pageObjects.hw4.DifferentElementsPageSelenide;
 import pageObjects.hw4.HomePageSelenide;
 
 import static com.codeborne.selenide.Selenide.page;
-import static enums.Users.PITER_CHALOVSKII;
 import static enums.differenElementsPageEnums.CheckBoxConditions.WATER;
 import static enums.differenElementsPageEnums.CheckBoxConditions.WIND;
 import static enums.differenElementsPageEnums.DropdownColors.YELLOW;
@@ -32,7 +31,7 @@ public class ServicePageInterfaceTestSuit extends SelenideTestBase {
         homePageSelenide.checkTitle();
 
         //3 Perform login
-        homePageSelenide.login(PITER_CHALOVSKII.login, PITER_CHALOVSKII.password);
+        homePageSelenide.login();
 
         //4 Assert User name in the left-top side of screen that user is logged
         homePageSelenide.checkUserLoggedIn();
