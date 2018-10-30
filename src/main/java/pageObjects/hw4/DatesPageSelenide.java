@@ -1,15 +1,16 @@
-package pageObjects;
+package pageObjects.hw4;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import pageObjects.hw4.Base.LogsSelenide;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static enums.datesPageSelenideEnums.Logs.FROM;
 import static enums.datesPageSelenideEnums.Logs.TO;
 
 
-public class DatesPageSelenide extends PageBaseSelenide {
+public class DatesPageSelenide extends LogsSelenide {
 
     //================================single elements===================================
 

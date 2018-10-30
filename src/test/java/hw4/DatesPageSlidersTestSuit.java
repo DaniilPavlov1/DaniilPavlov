@@ -3,7 +3,8 @@ package hw4;
 import base.SelenideTestBase;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.HomePageSelenide;
+import pageObjects.hw4.HomePageSelenide;
+import pageObjects.hw4.DatesPageSelenide;
 
 import static com.codeborne.selenide.Selenide.page;
 import static enums.Users.PITER_CHALOVSKII;
@@ -29,11 +30,11 @@ public class DatesPageSlidersTestSuit extends SelenideTestBase {
         //3 Perform login
         homePageSelenide.login(PITER_CHALOVSKII.login, PITER_CHALOVSKII.password);
 
-        //4 Assert User name in the left-top side of screen that user is loggined
+        //4 Assert User name in the left-top side of screen that user is logged
         homePageSelenide.checkUserLoggedIn();
 
         //5 Open through the header menu Service -> Dates Page
-        pageObjects.DatesPageSelenide datesPageSelenide = page(pageObjects.DatesPageSelenide.class);
+        DatesPageSelenide datesPageSelenide = page(DatesPageSelenide.class);
         datesPageSelenide.openPage();
 
         //6 Using drag-and-drop set Range sliders. left sliders - the most left position, right slider - the most rigth position

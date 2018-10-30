@@ -1,4 +1,4 @@
-package pageObjects;
+package pageObjects.hw4.Base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,7 +10,7 @@ import java.util.List;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class PageBaseSelenide {
+public class LogsSelenide {
 
     //Collection for reference logs
     protected Deque<String> testLogs = new ArrayDeque<>();

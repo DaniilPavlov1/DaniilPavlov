@@ -1,4 +1,4 @@
-package pageObjects;
+package pageObjects.hw4;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -6,6 +6,7 @@ import enums.differenElementsPageEnums.CheckBoxConditions;
 import enums.differenElementsPageEnums.DropdownColors;
 import enums.differenElementsPageEnums.RadioButtonValues;
 import org.openqa.selenium.support.FindBy;
+import pageObjects.hw4.Base.LogsSelenide;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.text;
@@ -13,7 +14,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static enums.ServiceCategories.DIFFERENT;
 
 
-public class DifferentElementsPageSelenide extends PageBaseSelenide {
+public class DifferentElementsPageSelenide extends LogsSelenide {
 
     //================================single elements===================================
 
