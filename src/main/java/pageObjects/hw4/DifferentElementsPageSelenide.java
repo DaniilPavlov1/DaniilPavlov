@@ -15,6 +15,7 @@ import static enums.ServiceCategories.DIFFERENT;
 
 
 public class DifferentElementsPageSelenide {
+
     private final LogsSelenide logsSelenide = new LogsSelenide();
 
     //================================single elements===================================

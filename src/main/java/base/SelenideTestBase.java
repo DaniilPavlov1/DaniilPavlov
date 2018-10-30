@@ -7,6 +7,7 @@ public class SelenideTestBase {
 
     @BeforeSuite
     public void deforSuite() {
+        Configuration.startMaximized = true;
         Configuration.browser = "chrome";
     }
 }
