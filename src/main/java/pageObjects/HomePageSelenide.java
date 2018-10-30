@@ -1,13 +1,10 @@
 package pageObjects;
 
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import enums.Urls;
-import enums.Users;
-import enums.mainPageEnums.Texts;
-import io.qameta.allure.Step;
+import enums.ServiceCategories;
 import org.openqa.selenium.support.FindBy;
-import org.testng.AssertJUnit;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -41,14 +38,26 @@ public class HomePageSelenide {
     @FindBy(css = ".profile-photo > span")
     private SelenideElement userProfile;
 
+    @FindBy(css = "[class = 'dropdown']")
+    private SelenideElement headerServiceButton;
+
+    @FindBy(css = "[class = 'sidebar-menu'] > [index='3']")
+    private SelenideElement leftServiceButton;
+
+    //================================collections of elements===================================
+
+    @FindBy(css = "[class = 'dropdown-menu'] > li")
+    private ElementsCollection headerServiceMenuElements;
+
+    @FindBy(css = "[class = 'sub'] > li")
+    private ElementsCollection leftServiceMenuElements;
+
     //================================methods===================================
 
-    @Step("1 - Open test site by URL")
     public void openPage() {
         open(HOME_PAGE_URL.url);
     }
 
-    @Step("3 - Perform login")
     public void login(String name, String passwd) {
         profileButton.click();
         login.sendKeys(name);
@@ -56,22 +65,39 @@ public class HomePageSelenide {
         submit.click();
     }
 
+    public void clickServiceHeader() {
+        headerServiceButton.click();
+    }
+
+    public void clickOnLeftSelect() {
+        leftServiceButton.click();
+    }
+
     //================================checks===================================
 
-    @Step("2 - Assert Browser title")
     public void checkTitle() {
         assertEquals(getWebDriver().getTitle(), "Home Page");
     }
 
-    @Step("4 - Assert User name in the left-top side of screen that user is loggined")
     public void checkUserLoggedIn() {
         userProfile.shouldBe(visible);
         userProfile.shouldHave(text(PITER_CHALOVSKII.name));
     }
 
-    @Step("Check that main text correct")
     public void checkMainText() {
         mainTitle.shouldBe(visible);
         mainTitle.shouldHave(text(TITLE_CONTENT.text));
+    }
+
+    public void checkHeaderServiceElements() {
+        for (String category : ServiceCategories.getList()) {
+            assertTrue(headerServiceMenuElements.texts().contains(category.toUpperCase()));
+        }
+    }
+
+    public void checkLeftServiceElements() {
+        for (String category : ServiceCategories.getList()) {
+            assertTrue(leftServiceMenuElements.texts().contains(category));
+        }
     }
 }

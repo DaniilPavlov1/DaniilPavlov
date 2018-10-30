@@ -1,23 +1,15 @@
 package pageObjects;
 
 import com.codeborne.selenide.SelenideElement;
-import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
-
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.testng.AssertJUnit.assertEquals;
+import static enums.datesPageSelenideEnums.Logs.FROM;
+import static enums.datesPageSelenideEnums.Logs.TO;
 
 
-public class DatesPageSelenide {
-
-    private Deque<String> testLogs = new ArrayDeque<>();
-
+public class DatesPageSelenide extends PageBaseSelenide {
 
     //================================single elements===================================
 
@@ -36,14 +28,8 @@ public class DatesPageSelenide {
     @FindBy(css = "div[class~='uui-slider']")
     private SelenideElement sliderTrack;
 
-    //================================lists of elements===================================
-
-//    @FindBy(css = "ul[class~='logs'] > li")
-//    private ArrayList<SelenideElement> logs;
-
     //================================methods===================================
 
-    @Step("5 - Open through the header menu Service -> Dates Page")
     public void openPage() {
         serviceDropdown.click();
         datesButton.click();
@@ -51,22 +37,15 @@ public class DatesPageSelenide {
 
     public void dragAndDropLeftSlider(double to) {
         dragAndDrop(to, leftSlider);
-
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
-        Date date = new Date();
-        testLogs.addFirst(formatter.format(date) + " Range 2(From):" + (int) to + " link clicked");
+        testLogs.addFirst(FROM.generateLog((int) to));
     }
 
     public void dragAndDropRightSlider(double to) {
         dragAndDrop(to, rightSlider);
-
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
-        Date date = new Date();
-        testLogs.addFirst(formatter.format(date) + " Range 2(To):" + (int) to + " link clicked");
+        testLogs.addFirst(TO.generateLog((int) to));
     }
 
     private void dragAndDrop(double to, SelenideElement slider) {
-
         //Create example of class Actions
         Actions actions = new Actions(getWebDriver());
 
@@ -74,7 +53,7 @@ public class DatesPageSelenide {
         int size = sliderTrack.getSize().width;
 
         //Get current position of slider
-        double position = Integer.parseInt(slider.getCssValue("left").replaceAll("px", ""));
+        double position = Double.parseDouble(slider.getCssValue("left").replaceAll("px", ""));
 
         //Covert incoming value to pixels and subtract current position
         Double vector = (to / 100) * size - position;
@@ -84,18 +63,5 @@ public class DatesPageSelenide {
 
         //Drag slider to required position
         actions.dragAndDropBy(slider, xOffset, 0).perform();
-
-
-    }
-
-    //================================checks===================================
-
-    @Step("7 - Assert that for \"From\" and \"To\" sliders there are logs rows with corresponding values")
-    public void checkLogsCorrect() {
-        int i = 0;
-        List<WebElement> logs = getWebDriver().findElements(By.cssSelector("ul[class~='logs'] > li"));
-        for (String str : testLogs) {
-            assertEquals(str, logs.get(i++).getText());
-        }
     }
 }
