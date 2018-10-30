@@ -23,7 +23,7 @@ public class ServicePageInterfaceTestSuit extends SelenideTestBase {
     }
 
     @Test
-    public void simpleTest() {
+    public void ServicePageInterfaceTest() {
 
         //1 Open test site by URL
         homePageSelenide.openPage();
