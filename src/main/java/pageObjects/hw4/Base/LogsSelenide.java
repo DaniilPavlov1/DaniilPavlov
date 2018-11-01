@@ -16,7 +16,7 @@ public class LogsSelenide {
     private Deque<String> testLogs = new ArrayDeque<>();
 
     //================================checks===================================
-    public void addLog(String log){
+    public void addLog(String log) {
         testLogs.addFirst(log);
     }
 

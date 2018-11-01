@@ -15,10 +15,13 @@ import static enums.differenElementsPageEnums.RadioButtonValues.SELEN;
 
 public class ServicePageInterfaceTestSuit extends SelenideTestBase {
     private HomePageSelenide homePageSelenide;
+    private DifferentElementsPageSelenide differentElementsPageSelenide;
 
     @BeforeClass
     public void beforeClass() {
         homePageSelenide = page(HomePageSelenide.class);
+        differentElementsPageSelenide = page(DifferentElementsPageSelenide.class);
+
     }
 
     @Test
@@ -45,7 +48,6 @@ public class ServicePageInterfaceTestSuit extends SelenideTestBase {
         homePageSelenide.checkLeftServiceElements();
 
         //7 Open through the header menu Service -> Different Elements Page
-        DifferentElementsPageSelenide differentElementsPageSelenide = page(DifferentElementsPageSelenide.class);
         differentElementsPageSelenide.openPage();
 
         //8 Check interface on Different elements page, it contains all needed elements

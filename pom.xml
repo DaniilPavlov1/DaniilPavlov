@@ -74,6 +74,20 @@
             </exclusions>
         </dependency>
 
+        <!--JDI-->
+        <dependency>
+            <groupId>com.epam.jdi</groupId>
+            <artifactId>jdi-uitest-web</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <!--Allure-->
+        <dependency>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-testng-adaptor</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
@@ -131,6 +145,13 @@
             </plugin>
 
         </plugins>
+        <!-- For using properties from pom -->
+        <resources>
+            <resource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
     <reporting>

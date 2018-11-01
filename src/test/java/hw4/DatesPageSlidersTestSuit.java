@@ -11,10 +11,12 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class DatesPageSlidersTestSuit extends SelenideTestBase {
     private HomePageSelenide homePageSelenide;
+    private DatesPageSelenide datesPageSelenide;
 
     @BeforeClass
     public void beforeClass() {
         homePageSelenide = page(HomePageSelenide.class);
+        datesPageSelenide = page(DatesPageSelenide.class);
     }
 
     @Test
@@ -33,7 +35,6 @@ public class DatesPageSlidersTestSuit extends SelenideTestBase {
         homePageSelenide.checkUserLoggedIn();
 
         //5 Open through the header menu Service -> Dates Page
-        DatesPageSelenide datesPageSelenide = page(DatesPageSelenide.class);
         datesPageSelenide.openPage();
 
         //6 Using drag-and-drop set Range sliders. left sliders - the most left position, right slider - the most rigth position
