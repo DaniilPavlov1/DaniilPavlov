@@ -74,12 +74,9 @@ public class MetalsAndColorsForm extends Form<TestData> {
     }
 
     private void selectSummary(int... summaryRadios) {
-        for (int radio : summaryRadios)
-            if (radio % 2 == 0) {
-                summary.even.select(String.valueOf(radio));
-            } else {
-                summary.odds.select(String.valueOf(radio));
-            }
+        for (int radio : summaryRadios) {
+            summary.select(radio);
+        }
     }
 
     private void selectElements(String... elements) {
