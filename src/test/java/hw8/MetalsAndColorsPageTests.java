@@ -6,6 +6,7 @@ import jsonPojo.TestData;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import static enums.Users.PITER_CHALOVSKII;
 import static site.JdiExampleSite.*;
 import static utils.MetalAndColorPageResultsChecker.checkResult;
 
@@ -27,10 +28,10 @@ public class MetalsAndColorsPageTests extends MetalsAndColorsPageInit {
         homePage.checkOpened();
 
         //3 Login as PITER CHAILOVSKI
-        login();
+        login(PITER_CHALOVSKII);
 
         //4 Check User Name corresponds to the logged user
-        checkLoggedInUserName();
+        checkLoggedInUserName(PITER_CHALOVSKII);
 
         //5 Open Metals And Colors Page by the Header menu
         openMetalAndColorsPageByHeader();
