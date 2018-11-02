@@ -1,12 +1,13 @@
 package hw8;
 
+import base.MetalsAndColorsPageInit;
 import dataProviders.DataProviders;
 import jsonPojo.TestData;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import static site.JdiExampleSite.*;
+import static utils.MetalAndColorPageResultsChecker.checkResult;
 
 
 public class MetalsAndColorsPageTests extends MetalsAndColorsPageInit {
@@ -34,26 +35,13 @@ public class MetalsAndColorsPageTests extends MetalsAndColorsPageInit {
         //5 Open Metals And Colors Page by the Header menu
         openMetalAndColorsPageByHeader();
 
-        //6 Select summary radio-buttons using data-provider values
-        metalAndColorsPage.summary.odds.select(String.valueOf(data.getSummary()[0]));
-        metalAndColorsPage.summary.even.select(String.valueOf(data.getSummary()[1]));
+        //6 Fill Metals And Colors Form using data provided
+        metalAndColorsPage.metalsAndColorsForm.fill(data);
 
-        //7 Select nature element check-box using data-provider values
-        metalAndColorsPage.nature.select(data.getElements());
+        //7 Submit Metals And Colors Form
+        metalAndColorsPage.metalsAndColorsForm.submit();
 
-        //8 Select color from the Colors drop-down menu using data-provider values
-        metalAndColorsPage.colors.select(data.getColor());
-
-        //8 Select metal from the Metals drop-down menu using data-provider values
-        metalAndColorsPage.metals.select(data.getMetals());
-
-        //9 Select vegetables from the Vegetables drop-list - DOESN'T WORK:(
-        // metalAndColorsPage.vegetables.select(data.getVegetables());
-
-        //10 Click on Submit button
-        metalAndColorsPage.submitBtn.click();
-
-        //11 Assert the results list displayed is corresponding to the previously selected values
-        Assert.assertEquals(metalAndColorsPage.resultsList.getTextList(), metalAndColorsPage.getExpectedResultTextList(data));
+        //8 Assert the results list displayed is corresponding to the previously selected values
+        checkResult(data);
     }
 }

@@ -1,6 +1,7 @@
 package jsonPojo;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class TestData {
     private int[] summary;
@@ -9,8 +10,12 @@ public class TestData {
     private String metals;
     private String[] vegetables;
 
-    public int[] getSummary() {
-        return summary;
+    public int getSummaryOdd() {
+        return summary[0];
+    }
+
+    public int getSummaryEven() {
+        return summary[1];
     }
 
     public void setSummary(int[] summary) {
@@ -33,7 +38,7 @@ public class TestData {
         this.color = color;
     }
 
-    public String getMetals() {
+    public String getMetal() {
         return metals;
     }
 
@@ -41,8 +46,8 @@ public class TestData {
         this.metals = metals;
     }
 
-    public String[] getVegetables() {
-        return vegetables;
+    public List<String> getVegetables() {
+        return Arrays.asList(vegetables);
     }
 
     public void setVegetables(String[] vegetables) {
