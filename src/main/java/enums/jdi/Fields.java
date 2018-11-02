@@ -15,14 +15,15 @@ public enum Fields {
         this.mask = mask;
     }
 
-    public String getFields(String[] text){
-        return String.format(mask, String.join(", ", text));
-    }
-    public String getFields(List<String> text){
+    public String getFields(String[] text) {
         return String.format(mask, String.join(", ", text));
     }
 
-    public String getField(String text){
+    public String getFields(List<String> text) {
+        return String.format(mask, String.join(", ", text));
+    }
+
+    public String getField(String text) {
         return String.format(mask, text);
     }
 }
