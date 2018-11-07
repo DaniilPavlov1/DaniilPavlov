@@ -1,7 +1,9 @@
 package dataProviders;
 
 
+import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import enums.mainPageEnums.Benefits;
@@ -10,8 +12,10 @@ import org.testng.annotations.DataProvider;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
-import static enums.jdi.DataWay.JSON_Path_JDI;
+import static enums.jdi.DataWay.JSON_PATH_JDI;
 
 public class DataProviders {
 
@@ -36,13 +40,18 @@ public class DataProviders {
     @DataProvider
     public Object[][] checkMetalsAndColorsPageDataProvider() throws FileNotFoundException {
         Gson gson = new Gson();
-        JsonObject jDataSet = new JsonParser().parse(new FileReader(JSON_Path_JDI.path)).getAsJsonObject();
-
-        Object[][] result = new Object[jDataSet.size()][1];
-        int i = 0;
-        for (String key : jDataSet.keySet()) {
-            result[i++][0] = gson.fromJson(jDataSet.get(key), TestData.class);
+        JsonElement jsonData = new JsonParser().parse(new FileReader(JSON_PATH_JDI.path));
+        JsonObject dataSet = jsonData.getAsJsonObject();
+        List<TestData> testData = new ArrayList<>();
+        for (String key : dataSet.keySet()) {
+            testData.add(gson.fromJson(dataSet.get(key), new TypeToken<TestData>() {
+            }.getType()));
         }
-        return result;
+        Object[][] returnValue = new Object[testData.size()][1];
+        int index = 0;
+        for (Object[] each : returnValue) {
+            each[0] = testData.get(index++);
+        }
+        return returnValue;
     }
 }
