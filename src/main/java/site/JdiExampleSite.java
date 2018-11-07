@@ -23,6 +23,8 @@ public class JdiExampleSite extends WebSite {
     @Step
     public static void login(Users user) {
         headerMenu.profilePhoto.click();
+        // TODO Users and User ? There should be only one class for the same purposes.
+        // TODO Or do not use it an once, at least
         loginForm.loginAs(new User(user.login, user.password));
     }
 
