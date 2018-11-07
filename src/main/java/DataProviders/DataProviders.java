@@ -1,3 +1,4 @@
+// TODO Fix this error please.
 package dataProviders;
 
 
@@ -33,6 +34,7 @@ public class DataProviders {
 
     @DataProvider
     public Object[][] checkMetalsAndColorsPageDataProvider() throws FileNotFoundException {
+        // TODO Take a look on TypeToken
         Gson gson = new Gson();
         JsonObject jDataSet = new JsonParser().parse(new FileReader
                 ("src/test/resources/JDI_ex8_metalsColorsDataSet.json")).getAsJsonObject();
