@@ -1,13 +1,21 @@
 package entities;
 
-import com.epam.commons.DataClass;
+public class User {
 
-public class User extends DataClass {
-    public String name;
-    public String password;
+    // String login;
+    String password;
+    String name;
+    String displayedName;
 
-    public User(String name, String password) {
+    public User(String name, String pass, String displayedName) {
         this.name = name;
-        this.password = password;
+        this.password = pass;
+        this.displayedName = displayedName;
+    }
+
+    public static User PITER = new User("epam", "1234", "PITER CHAILOVSKII");
+
+    public String getDisplayedName() {
+        return displayedName;
     }
 }

@@ -4,6 +4,7 @@ package pageObjects.hw4;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import enums.ServiceCategories;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Condition.text;
@@ -54,10 +55,12 @@ public class HomePageSelenide {
 
     //================================methods===================================
 
+    @Step("Open test site by URL")
     public void openPage() {
         open(HOME_PAGE_URL.url);
     }
 
+    @Step("Perform login")
     public void login() {
         profileButton.click();
         login.sendKeys(PITER_CHALOVSKII.login);
@@ -65,20 +68,24 @@ public class HomePageSelenide {
         submit.click();
     }
 
+    @Step("Click at dropdown \"Service\" in Header")
     public void clickServiceHeader() {
         headerServiceButton.click();
     }
 
+    @Step("Click at dropdown \"Service\" in Left section")
     public void clickOnLeftSelect() {
         leftServiceButton.click();
     }
 
     //================================checks===================================
 
+    @Step("Assert Browser title")
     public void checkTitle() {
         assertEquals(getWebDriver().getTitle(), "Home Page");
     }
 
+    @Step("Assert User name in the left-top side of screen that user is logged")
     public void checkUserLoggedIn() {
         userProfile.shouldBe(visible);
         userProfile.shouldHave(text(PITER_CHALOVSKII.name));
@@ -89,12 +96,14 @@ public class HomePageSelenide {
         mainTitle.shouldHave(text(TITLE_CONTENT.text));
     }
 
+    @Step("Check that dropdown \"Service\" in Header section contains correct elements")
     public void checkHeaderServiceElements() {
         for (String category : ServiceCategories.getList()) {
             assertTrue(headerServiceMenuElements.texts().contains(category.toUpperCase()));
         }
     }
 
+    @Step("Check that dropdown \"Service\" in Left section contains correct elements")
     public void checkLeftServiceElements() {
         for (String category : ServiceCategories.getList()) {
             assertTrue(leftServiceMenuElements.texts().contains(category));

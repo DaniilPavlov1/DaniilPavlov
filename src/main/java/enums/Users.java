@@ -12,4 +12,9 @@ public enum Users {
         this.password = password;
         this.name = name;
     }
+
+    public String[] getEntity() {
+        String[] entity = {login, password};
+        return entity;
+    }
 }

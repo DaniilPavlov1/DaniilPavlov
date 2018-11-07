@@ -11,6 +11,8 @@ import org.testng.annotations.DataProvider;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+import static enums.jdi.DataWay.JSON_Path_JDI;
+
 public class DataProviders {
 
     @DataProvider
@@ -34,8 +36,8 @@ public class DataProviders {
     @DataProvider
     public Object[][] checkMetalsAndColorsPageDataProvider() throws FileNotFoundException {
         Gson gson = new Gson();
-        JsonObject jDataSet = new JsonParser().parse(new FileReader
-                ("src/test/resources/JDI_ex8_metalsColorsDataSet.json")).getAsJsonObject();
+        JsonObject jDataSet = new JsonParser().parse(new FileReader(JSON_Path_JDI.path)).getAsJsonObject();
+
         Object[][] result = new Object[jDataSet.size()][1];
         int i = 0;
         for (String key : jDataSet.keySet()) {
