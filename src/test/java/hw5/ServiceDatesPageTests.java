@@ -19,7 +19,6 @@ import static enums.differenElementsPageEnums.RadioButtonValues.SELEN;
 @Feature("UI Tests")
 @Story("Service And Dates Pages Testing")
 @Listeners(AllureAttachmentListener.class)
-
 public class ServiceDatesPageTests extends SelenideTestBase {
 
 
