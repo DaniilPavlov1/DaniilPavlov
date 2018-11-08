@@ -64,22 +64,25 @@ public class DifferentElementsPageSelenide {
 
     //================================methods selecting elements===================================
 
-    @Step("Select condition in checkbox + %s")
+    @Step("Select condition {0} in checkbox")
     public void selectConditionInCheckbox(CheckBoxConditions element) {
         checkBoxElements.find(text(element.name)).click();
         logsSelenide.addLog(element.generateLog(true));
     }
 
+    @Step("Unselect condition {0} in checkbox")
     public void unselectConditionInCheckbox(CheckBoxConditions element) {
         checkBoxElements.find(text(element.name)).click();
         logsSelenide.addLog(element.generateLog(false));
     }
 
+    @Step("Select radio button {0}")
     public void selectRadioButtonValue(RadioButtonValues element) {
         radioButtonElements.find(text(element.name)).click();
         logsSelenide.addLog(element.generateLog());
     }
 
+    @Step("Select color {0} in dropdown")
     public void selectColorInDropDown(DropdownColors color) {
         colorsDropDownMenu.click();
         dropDownMenuOptions.find(text(color.name)).click();
@@ -106,6 +109,7 @@ public class DifferentElementsPageSelenide {
         buttonElements.shouldHave(size(2));
     }
 
+    @Step("Check that logs ar correct")
     public void checkLogsCorrect() {
         logsSelenide.checkLogsCorrect();
     }

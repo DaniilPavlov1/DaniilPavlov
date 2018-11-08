@@ -1,6 +1,7 @@
 package pageObjects.hw4;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import pageObjects.hw4.Base.LogsSelenide;
@@ -33,16 +34,19 @@ public class DatesPageSelenide {
 
     //================================methods===================================
 
+    @Step("Open through the header menu Service -> Dates Page")
     public void openPage() {
         serviceDropdown.click();
         datesButton.click();
     }
 
+    @Step("Drag and drop left slider to {0}")
     public void dragAndDropLeftSlider(double to) {
         dragAndDrop(to, leftSlider);
         logsSelenide.addLog(FROM.generateLog((int) to));
     }
 
+    @Step("Drag and drop right slider to {0}")
     public void dragAndDropRightSlider(double to) {
         dragAndDrop(to, rightSlider);
         logsSelenide.addLog(TO.generateLog((int) to));
@@ -57,6 +61,7 @@ public class DatesPageSelenide {
         actions.dragAndDropBy(slider, xOffset, 0).perform();
     }
 
+    @Step("Check that logs ar correct")
     public void checkLogsCorrect() {
         logsSelenide.checkLogsCorrect();
     }
