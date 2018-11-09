@@ -8,6 +8,7 @@ public class SelenideTestBase {
     @BeforeSuite
     public void deforSuite() {
         Configuration.startMaximized = true;
+        Configuration.browserSize="1920x1080";
         Configuration.browser = "chrome";
     }
 }
