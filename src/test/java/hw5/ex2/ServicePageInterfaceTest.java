@@ -1,4 +1,4 @@
-package hw5;
+package hw5.ex2;
 
 import base.SelenideTestBase;
 import io.qameta.allure.Feature;
@@ -11,16 +11,15 @@ import pageObjects.hw4.DifferentElementsPageSelenide;
 import pageObjects.hw4.HomePageSelenide;
 
 import static com.codeborne.selenide.Selenide.page;
-import static enums.differenElementsPageEnums.CheckBoxConditions.SPIRIT;
 import static enums.differenElementsPageEnums.CheckBoxConditions.WATER;
 import static enums.differenElementsPageEnums.CheckBoxConditions.WIND;
 import static enums.differenElementsPageEnums.DropdownColors.YELLOW;
 import static enums.differenElementsPageEnums.RadioButtonValues.SELEN;
 
 @Feature("UI Tests")
-@Story("Service And Dates Pages Testing")
+@Story("Service Page Testing")
 @Listeners(AllureAttachmentListener.class)
-public class ServicePageInterfaceTestError extends SelenideTestBase {
+public class ServicePageInterfaceTest extends SelenideTestBase {
 
     private HomePageSelenide homePageSelenide;
     private DifferentElementsPageSelenide differentElementsPageSelenide;
@@ -69,7 +68,7 @@ public class ServicePageInterfaceTestError extends SelenideTestBase {
 
         //11 Select checkboxes
         differentElementsPageSelenide.selectConditionInCheckbox(WATER);
-        differentElementsPageSelenide.selectConditionInCheckbox(SPIRIT);
+        differentElementsPageSelenide.selectConditionInCheckbox(WIND);
 
         //12 Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox
         differentElementsPageSelenide.checkLogsCorrect();

@@ -1,4 +1,4 @@
-package hw5;
+package hw5.ex2;
 
 import base.SelenideTestBase;
 import io.qameta.allure.Feature;
@@ -13,7 +13,7 @@ import pageObjects.hw4.HomePageSelenide;
 import static com.codeborne.selenide.Selenide.page;
 
 @Feature("UI Tests")
-@Story("Service And Dates Pages Testing")
+@Story("Dates Page Testing")
 @Listeners(AllureAttachmentListener.class)
 public class DatesPageSlidersTest extends SelenideTestBase {
     private HomePageSelenide homePageSelenide;
