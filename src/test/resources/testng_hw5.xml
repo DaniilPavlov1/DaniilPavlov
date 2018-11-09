@@ -3,9 +3,10 @@
 <suite name="Test Suite" parallel="methods" thread-count="3">
     <test name="HW5 Tests">
 
-        <classes>
-            <class name="hw5.ServiceDatesPageTests"/>
-        </classes>
+        <packages>
+            <package name="hw5">
+            </package>
+        </packages>
 
     </test>
 </suite>

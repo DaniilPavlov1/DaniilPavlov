@@ -4,6 +4,7 @@ public enum CheckBoxConditions {
     WATER("Water"),
     WIND("Wind"),
     EARTH("Earth"),
+    SPIRIT("Spirit"),
     FIRE("Fire");
 
     public final String name;
