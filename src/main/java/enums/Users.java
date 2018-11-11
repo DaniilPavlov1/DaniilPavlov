@@ -17,4 +17,12 @@ public enum Users {
         String[] entity = {login, password};
         return entity;
     }
+
+    public static Users getUserEnumByName(String userName) {
+        if (userName.equals(PITER_CHALOVSKII.name)) {
+            return PITER_CHALOVSKII;
+        } else {
+            throw new UnsupportedOperationException("User with such name " + userName + " not found!");
+        }
+    }
 }

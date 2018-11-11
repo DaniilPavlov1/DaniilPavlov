@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeSuite;
 public class SelenideTestBase {
 
     @BeforeSuite
-    public void deforSuite() {
+    public void beforeSuite() {
         Configuration.startMaximized = true;
         Configuration.browser = "chrome";
     }

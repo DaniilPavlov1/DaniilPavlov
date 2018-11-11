@@ -7,10 +7,10 @@ import pageObjects.hw4.DifferentElementsPageSelenide;
 import pageObjects.hw4.HomePageSelenide;
 
 import static com.codeborne.selenide.Selenide.page;
-import static enums.differenElementsPageEnums.CheckBoxConditions.WATER;
-import static enums.differenElementsPageEnums.CheckBoxConditions.WIND;
+import static enums.differenElementsPageEnums.CheckboxConditions.WATER;
+import static enums.differenElementsPageEnums.CheckboxConditions.WIND;
 import static enums.differenElementsPageEnums.DropdownColors.YELLOW;
-import static enums.differenElementsPageEnums.RadioButtonValues.SELEN;
+import static enums.differenElementsPageEnums.Radiobutton.SELEN;
 
 
 public class ServicePageInterfaceTestSuit extends SelenideTestBase {

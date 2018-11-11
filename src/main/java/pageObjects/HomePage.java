@@ -73,7 +73,7 @@ public class HomePage {
     //================================methods===================================
 
     public void open(WebDriver driver) {
-        driver.get(Urls.HOME_PAGE_URL.url);
+        driver.get(Urls.HOME_PAGE.url);
     }
 
     public void login(String name, String passwd) {

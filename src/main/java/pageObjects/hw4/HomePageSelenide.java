@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static enums.Urls.HOME_PAGE_URL;
+import static enums.Urls.HOME_PAGE;
 import static enums.Users.PITER_CHALOVSKII;
 import static enums.mainPageEnums.Texts.TITLE_CONTENT;
 import static org.testng.Assert.assertEquals;
@@ -57,7 +57,7 @@ public class HomePageSelenide {
 
     @Step("Open test site by URL")
     public void openPage() {
-        open(HOME_PAGE_URL.url);
+        open(HOME_PAGE.url);
     }
 
     @Step("Perform login")

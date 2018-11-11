@@ -2,9 +2,9 @@ package pageObjects.hw4;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import enums.differenElementsPageEnums.CheckBoxConditions;
+import enums.differenElementsPageEnums.CheckboxConditions;
 import enums.differenElementsPageEnums.DropdownColors;
-import enums.differenElementsPageEnums.RadioButtonValues;
+import enums.differenElementsPageEnums.Radiobutton;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import pageObjects.hw4.Base.LogsSelenide;
@@ -65,19 +65,19 @@ public class DifferentElementsPageSelenide {
     //================================methods selecting elements===================================
 
     @Step("Select condition {0} in checkbox")
-    public void selectConditionInCheckbox(CheckBoxConditions element) {
+    public void selectConditionInCheckbox(CheckboxConditions element) {
         checkBoxElements.find(text(element.name)).click();
         logsSelenide.addLog(element.generateLog(true));
     }
 
     @Step("Unselect condition {0} in checkbox")
-    public void unselectConditionInCheckbox(CheckBoxConditions element) {
+    public void unselectConditionInCheckbox(CheckboxConditions element) {
         checkBoxElements.find(text(element.name)).click();
         logsSelenide.addLog(element.generateLog(false));
     }
 
     @Step("Select radio button {0}")
-    public void selectRadioButtonValue(RadioButtonValues element) {
+    public void selectRadioButtonValue(Radiobutton element) {
         radioButtonElements.find(text(element.name)).click();
         logsSelenide.addLog(element.generateLog());
     }

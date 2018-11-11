@@ -11,16 +11,14 @@ import pageObjects.hw4.DifferentElementsPageSelenide;
 import pageObjects.hw4.HomePageSelenide;
 
 import static com.codeborne.selenide.Selenide.page;
-import static enums.differenElementsPageEnums.CheckBoxConditions.SPIRIT;
-import static enums.differenElementsPageEnums.CheckBoxConditions.WATER;
-import static enums.differenElementsPageEnums.CheckBoxConditions.WIND;
+import static enums.differenElementsPageEnums.CheckboxConditions.*;
 import static enums.differenElementsPageEnums.DropdownColors.YELLOW;
-import static enums.differenElementsPageEnums.RadioButtonValues.SELEN;
+import static enums.differenElementsPageEnums.Radiobutton.SELEN;
 
 @Feature("UI Tests")
 @Story("Service Page Testing")
 @Listeners(AllureAttachmentListener.class)
-public class ServicePageInterfaceTestError extends SelenideTestBase {
+public class ServicePageInterfaceTestFailed extends SelenideTestBase {
 
     private HomePageSelenide homePageSelenide;
     private DifferentElementsPageSelenide differentElementsPageSelenide;
