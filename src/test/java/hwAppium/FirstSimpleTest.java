@@ -1,4 +1,4 @@
-package hwappium;
+package hwAppium;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
