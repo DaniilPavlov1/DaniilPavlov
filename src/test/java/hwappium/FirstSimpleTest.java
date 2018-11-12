@@ -14,7 +14,7 @@ public class FirstSimpleTest extends DriverSetup {
     }
 
     @Test(description = "Click on \"Add Contact\" button")
-    public void SimplestTest() {
+    public void simplestTest() {
         By add_btn_id = By.id("com.example.android.contactmanager:id/addContactButton");
 
         //added alternative locators
