@@ -3,7 +3,7 @@ HW 1 Mobile TA
 
 *1.	Setup project that has been discussed in the class. Make sure you can run both tests (native and web) successfully.
     
-   All tests run properly.
+    All tests run properly.
 
 *2.	For existing native mobile autotest try to use another locator (xpath, classname, ?). Define these locators using
 Appium Inspector. Are there any difference with id version?
