@@ -40,7 +40,7 @@ public class HomePageContentTestSuit {
 
 
     @Test
-    public void HomePageContentTest() {
+    public void homePageContentTest() {
 
         //1 Open test site by URL
         homePage.open(driver);

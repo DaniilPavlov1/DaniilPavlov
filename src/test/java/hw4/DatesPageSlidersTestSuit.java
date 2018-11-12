@@ -20,7 +20,7 @@ public class DatesPageSlidersTestSuit extends SelenideTestBase {
     }
 
     @Test
-    public void DatesPageSlidersTest() {
+    public void datesPageSlidersTest() {
 
         //1 Open test site by URL
         homePageSelenide.openPage();

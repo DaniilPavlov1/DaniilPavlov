@@ -58,7 +58,7 @@ public class DifferentElementsPageSelenide {
         headerServiceMenuElements.find(text(DIFFERENT.text)).click();
     }
 
-    public void clickServiceHeader() {
+    private void clickServiceHeader() {
         headerServiceButton.click();
     }
 

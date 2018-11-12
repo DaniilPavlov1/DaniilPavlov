@@ -13,7 +13,6 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static enums.Urls.HOME_PAGE;
 import static enums.Users.PITER_CHALOVSKII;
-import static enums.mainPageEnums.Texts.TITLE_CONTENT;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -89,11 +88,6 @@ public class HomePageSelenide {
     public void checkUserLoggedIn() {
         userProfile.shouldBe(visible);
         userProfile.shouldHave(text(PITER_CHALOVSKII.name));
-    }
-
-    public void checkMainText() {
-        mainTitle.shouldBe(visible);
-        mainTitle.shouldHave(text(TITLE_CONTENT.text));
     }
 
     @Step("Check that dropdown \"Service\" in Header section contains correct elements")

@@ -2,13 +2,12 @@ package pageObjects.hw4;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import pageObjects.hw4.Base.LogsSelenide;
 
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static enums.datesPageSelenideEnums.Logs.FROM;
 import static enums.datesPageSelenideEnums.Logs.TO;
+import static utils.DragAndDrop.dragAndDrop;
 
 
 public class DatesPageSelenide {
@@ -42,23 +41,14 @@ public class DatesPageSelenide {
 
     @Step("Drag and drop left slider to {0}")
     public void dragAndDropLeftSlider(double to) {
-        dragAndDrop(to, leftSlider);
+        dragAndDrop(to, leftSlider, sliderTrack);
         logsSelenide.addLog(FROM.generateLog((int) to));
     }
 
     @Step("Drag and drop right slider to {0}")
     public void dragAndDropRightSlider(double to) {
-        dragAndDrop(to, rightSlider);
+        dragAndDrop(to, rightSlider, sliderTrack);
         logsSelenide.addLog(TO.generateLog((int) to));
-    }
-
-    private void dragAndDrop(double to, SelenideElement slider) {
-        Actions actions = new Actions(getWebDriver());
-        int size = sliderTrack.getSize().width;
-        double position = Double.parseDouble(slider.getCssValue("left").replaceAll("px", ""));
-        Double vector = (to / 100) * size - position;
-        int xOffset = vector.intValue() - 1;
-        actions.dragAndDropBy(slider, xOffset, 0).perform();
     }
 
     @Step("Check that logs ar correct")
