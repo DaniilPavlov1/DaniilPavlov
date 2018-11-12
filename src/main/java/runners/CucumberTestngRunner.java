@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeSuite;
 
 import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
 
-@CucumberOptions(features = "src/test/java/hw6/", glue = "pageObjects")
+@CucumberOptions(features = "src/test/java/hw6/", glue = "pageObjects", tags = {"@smoke"})
 public class CucumberTestngRunner extends AbstractTestNGCucumberTests {
 
     @BeforeSuite

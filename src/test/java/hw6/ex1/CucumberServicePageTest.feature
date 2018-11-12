@@ -1,3 +1,4 @@
+@smoke
 Feature: Different Elements Page tests
 
   Scenario: Different Elements Page Interface test

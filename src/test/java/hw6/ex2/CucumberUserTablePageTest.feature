@@ -1,3 +1,4 @@
+@smoke
 Feature: User Table Page tests
 
   Scenario: User's Table test
