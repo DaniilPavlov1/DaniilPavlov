@@ -1,5 +1,5 @@
 # DaniilPavlov
-HW 1 Mobile TA
+HW 2 Mobile TA
 
 *1.	Setup project that has been discussed in the class. Make sure you can run both tests (native and web) successfully.
     
