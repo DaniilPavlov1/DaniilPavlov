@@ -16,7 +16,7 @@ public class DriverSetup {
         capabilities.setCapability("deviceName","SM-G930F");
         capabilities.setCapability("platformName","Android");
 
-        File app = new File("ContactManager.apk");
+        File app = new File("src/main/resources/mobile/ContactManager.apk");
 
         capabilities.setCapability("app", app.getAbsolutePath());
 
