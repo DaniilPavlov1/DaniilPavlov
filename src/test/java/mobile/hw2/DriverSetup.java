@@ -13,8 +13,8 @@ public class DriverSetup {
     protected void prepareNative() throws MalformedURLException { // exception required by java.net.URL
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //mandatory capabilities
-        capabilities.setCapability("deviceName","SM-G930F");
-        capabilities.setCapability("platformName","Android");
+        capabilities.setCapability("deviceName", "SM-G930F");
+        capabilities.setCapability("platformName", "Android");
 
         File app = new File("src/main/resources/mobile/ContactManager.apk");
 
@@ -28,8 +28,8 @@ public class DriverSetup {
     protected void prepareAndroidWeb() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //mandatory Android capabilities
-        capabilities.setCapability("deviceName","SM-G930F");
-        capabilities.setCapability("platformName","Android");
+        capabilities.setCapability("deviceName", "SM-G930F");
+        capabilities.setCapability("platformName", "Android");
 
         // specific web capabilities
         capabilities.setCapability("browserName", "Chrome");

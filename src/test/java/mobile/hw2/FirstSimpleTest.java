@@ -10,7 +10,7 @@ public class FirstSimpleTest extends DriverSetup {
     @BeforeMethod
     public void setUp() throws Exception {
         prepareNative();
-       // prepareAndroidWeb();
+        // prepareAndroidWeb();
     }
 
     @Test(description = "Click on \"Add Contact\" button")
@@ -25,11 +25,11 @@ public class FirstSimpleTest extends DriverSetup {
         System.out.println("Simplest Appium test done");
     }
 
-//    @Test(description = "Open website")
-//    public void webTest() {
-//        driver.get("http://iana.org");
-//        System.out.println("Site opening done");
-//    }
+    @Test(description = "Open website")
+    public void webTest() {
+        driver.get("http://iana.org");
+        System.out.println("Site opening done");
+    }
 
     @AfterClass
     public void tearDown() {
