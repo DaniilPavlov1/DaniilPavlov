@@ -1,4 +1,4 @@
-package enums.mobile;
+package enums.mobile.enumsWeb;
 
 import org.openqa.selenium.By;
 

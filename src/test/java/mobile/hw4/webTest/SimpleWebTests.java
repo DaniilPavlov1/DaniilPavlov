@@ -1,9 +1,7 @@
-package mobile.hw3.webtests;
+package mobile.hw4.webTest;
 
-import enums.mobile.PropertyFile;
-import enums.mobile.WebSectionsLinks;
-import io.restassured.RestAssured;
-import mobile.hw3.Hooks;
+import appiumBase.Hooks;
+import enums.mobile.enumsWeb.WebSectionsLinks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,26 +9,19 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-import static enums.mobile.MainComponents.*;
-import static enums.mobile.PageTitles.IANA_PAGE;
-import static enums.mobile.WebHeaderElements.*;
-import static enums.mobile.WebSections.getSectionTexts;
-import static enums.mobile.WebSections.getSectionsTitles;
+import static enums.mobile.enumsWeb.MainComponents.*;
+import static enums.mobile.enumsWeb.PageTitles.IANA_PAGE;
+import static enums.mobile.enumsWeb.WebHeaderElements.*;
+import static enums.mobile.enumsWeb.WebSections.getSectionTexts;
+import static enums.mobile.enumsWeb.WebSections.getSectionsTitles;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 @Test(groups = "web")
 public class SimpleWebTests extends Hooks {
 
-    protected SimpleWebTests() {
-        super(PropertyFile.WEB);
-    }
-
     @Test(description = "Open website")
     public void webTest() throws Exception {
-
-        //Assert that page returns "200" status code
-        assertEquals(RestAssured.get(SUT).statusCode(), 200);
 
         driver().get(SUT);
         driverWait().until(ExpectedConditions.urlToBe(SUT + "/"));

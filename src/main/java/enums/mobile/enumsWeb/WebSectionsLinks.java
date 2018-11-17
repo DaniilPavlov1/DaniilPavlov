@@ -1,4 +1,4 @@
-package enums.mobile;
+package enums.mobile.enumsWeb;
 
 import java.util.Arrays;
 import java.util.List;

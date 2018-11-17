@@ -6,78 +6,98 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 
-public class Driver extends TestProperties {
-    private static AppiumDriver driverSingle = null;
-    private static WebDriverWait waitSingle;
-    private DesiredCapabilities capabilities;
+import static enums.mobile.enumsSetup.AdditionalCaps.APP_ACTIVITY_CAP;
+import static enums.mobile.enumsSetup.AdditionalCaps.APP_PACKAGE_CAP;
+import static enums.mobile.enumsSetup.Browsers.CHROME;
+import static enums.mobile.enumsSetup.Browsers.SAFARI;
+import static enums.mobile.enumsSetup.ErrorsTexts.UNCLEAR_TYPE_OF_MOBILE_APP;
+import static enums.mobile.enumsSetup.ErrorsTexts.UNKNOWN_MOBILE_PLATFORM;
+import static enums.mobile.enumsSetup.ResoursesPaths.HTTPS_PREFIX;
+import static enums.mobile.enumsSetup.ResoursesPaths.PATH_TO_RESOURCES;
+import static io.appium.java_client.remote.MobileCapabilityType.*;
+import static utils.appium.JsonReader.getDevice;
 
-    // Properties to be read
-    private static String AUT; // (mobile) app under testing
-    protected static String SUT; // site under testing
+public class Driver {
+    private static AppiumDriver appiumDriver = null;
+    private static WebDriverWait driverWait;
+    private DesiredCapabilities capabilities;
+    private static Device device;
+
+    private static String AUT;
+    protected static String SUT;
     private static String TEST_PLATFORM;
     private static String DRIVER;
     private static String DEVICE_NAME;
+    private static String UDID;
+    private static String APP_PACKAGE;
+    private static String APP_ACTIVITY;
+
+    protected void loadConfig(String pathToConfig) throws FileNotFoundException {
+        System.out.println("Config: " + pathToConfig);
+        device = getDevice(pathToConfig);
+
+        AUT = device.aut == null ? null : PATH_TO_RESOURCES + device.aut;
+        System.out.println("aut=" + AUT);
+        SUT = device.sut == null ? null : HTTPS_PREFIX + device.sut;
+        System.out.println("sut=" + SUT);
+        TEST_PLATFORM = device.test_platform;
+        DRIVER = device.driver;
+        DEVICE_NAME = device.device_name;
+        UDID = device.udid;
+        APP_PACKAGE = device.app_package;
+        APP_ACTIVITY = device.app_activity;
+    }
 
     protected void prepareDriver() throws Exception {
         capabilities = new DesiredCapabilities();
         String browserName;
 
-        System.out.println("Properties: " + propertyFile);
-
-        //Initialize properties
-        String resourcePath = "./src/main/resources/mobile/";
-        String mobileAppName = getProp("aut");
-        AUT = mobileAppName == null ? null : resourcePath + mobileAppName;
-        System.out.println("aut=" + AUT); //Write Current AUT to console
-        String t_sut = getProp("sut");
-        SUT = t_sut == null ? null : "http://" + t_sut;
-        System.out.println("sut=" + SUT); //Write Current SUT to console
-        TEST_PLATFORM = getProp("platform");
-        DRIVER = getProp("driver");
-        DEVICE_NAME = getProp("devicename");
-
-        // Setup test platform: Android or iOS. Browser also depends on a platform.
         switch (TEST_PLATFORM) {
             case "Android":
                 capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
-                browserName = "Chrome";
+                browserName = CHROME.browser;
                 break;
             case "iOS":
-                browserName = "Safari";
+                capabilities.setCapability(MobileCapabilityType.UDID, UDID);
+                browserName = SAFARI.browser;
                 break;
             default:
-                throw new Exception("Unknown mobile platform");
+                throw new Exception(UNKNOWN_MOBILE_PLATFORM.text);
         }
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, TEST_PLATFORM);
+        capabilities.setCapability(PLATFORM_NAME, TEST_PLATFORM);
 
-        // Setup type of application: mobile, web (or hybrid)
         if (AUT != null && SUT == null) {
-            File app = new File(AUT);
-            capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+            if (device.isRemote) {
+                capabilities.setCapability(APP_PACKAGE_CAP.capName, APP_PACKAGE);
+                capabilities.setCapability(APP_ACTIVITY_CAP.capName, APP_ACTIVITY);
+            } else {
+                File app = new File(AUT);
+                capabilities.setCapability(APP, app.getAbsolutePath());
+            }
         } else if (SUT != null && AUT == null) {
-            capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);
+            capabilities.setCapability(BROWSER_NAME, browserName);
         } else {
-            throw new Exception("Unclear type of mobile app");
+            throw new Exception(UNCLEAR_TYPE_OF_MOBILE_APP.text);
         }
+        System.out.println(capabilities);
+        if (appiumDriver == null) appiumDriver = new AppiumDriver(new URL(DRIVER), capabilities);
 
-        // Init driver with new AppiumDriver object
-        if (driverSingle == null) driverSingle = new AppiumDriver(new URL(DRIVER), capabilities);
-
-        // Set an object to handle timeouts
-        if (waitSingle == null) waitSingle = new WebDriverWait(driver(), 10);
+        if (driverWait == null) {
+            driverWait = new WebDriverWait(driver(), 10);
+        }
 
     }
 
-    //Method to access singleton
     protected AppiumDriver driver() throws Exception {
-        if (driverSingle == null) prepareDriver();
-        return driverSingle;
+        if (appiumDriver == null) prepareDriver();
+        return appiumDriver;
     }
 
     protected WebDriverWait driverWait() {
-        return waitSingle;
+        return driverWait;
     }
 
 }

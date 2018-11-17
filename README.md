@@ -1,38 +1,40 @@
 # DaniilPavlov
-HW 3 Mobile TA
+HW 4 Mobile TA
 
-*1. Rewrite (complete) Driver using “singleton” pattern. Are there any advantages?
+   1.	Add support of appPackage and appActivity parameters for Android devices
+   (reading from a .properties file and then setting in the    DesiredCapabilities). Locally
+   installed Appium DT has no need in these parameters, but for Appium server of Minsk Mobile Farm it’s mandatory.
 
-    Now there is only one driver object for every test suite.
-    We have access to one common driver instance from all tests.
+    Done, corresponding fields and its initializations are added.
 
-*2. Suggest improvements for .properties reading. What are the purposes?
+   a.	Or try to use autoLaunch capability with app as before. Does this approach work?
 
-    1. Use BufferedInputStream for fast access to data).
-    2. Use "try-with-resources", it prevents us from mistake such as forget close InputStream;
+    No, this approach doesn’t work. Server returns the following error: {
+    The desired capabilities must include either an app, appPackage or browserName
+    }
 
-*3. Add checks of other fields and their titles (Contact Name, Contact phone) in “native” test
+   2.	Change settings to run web test on a certain iOS device on Mobile Test Farm. Run test with your changes. Did test pass?
 
-    1. Added check for screen title.
-    2. Added checks for field’s titles.
-    3. Added checks for fields.
-    4. Added check for virtual keyboard.
-    5. Added checks for spinners.
-    6. Added check for "Save" button.
+    Settings were changed. Tests passed.
 
-*4. Optional: Add keyboard presence check in “native” test.
+   3.	Change settings to run native test on a certain/random Android device on Mobile Test Farm. Run test with your changes. Did test pass?
 
-    To check keyboard is displayed I used the method hideKeyboard() which throw exception
-    if it tries hide keyboard but keyboard isn't presented.
+    Test passed.
 
-*5. Which checks would you place in the “web” test?
+  4.	What’s wrong with our code? How to fix/improve it? Implement your suggestions.
 
-    1. Check response code of the target page.
-    2. Check header logo is displayed.
-    3. Check page title have proper text.
-    4. Check that header is presented.
-    5. Check header content: logo, intro text, link (visible and have proper texts).
-    6. Check that there are three sections with visible titles, texts and links with proper texts.
-    7. Check that search panel and footer is displayed.
+    1. We should store our properties as objects in .json format.
+       That decision granted for us easily reuse predefined configs for test devices and convenient to change configs.
 
+    2. We should make our tests be prepared for Jenkins so I've made testng .xml configs
+       for running our tests by Maven by CMD example commands: {
+
+        for native tests:
+        mvn clean test -DsuiteXmlFile=/appium/spb_farm_android_nexus5s_native.xml
+
+        for web tests:
+        mvn clean test -DsuiteXmlFile=/appium/spb_farm_android_nexus5s_web.xml
+    }
+
+    3.	We should replace (where possible) all hardcoded values to Enums or constants.
 

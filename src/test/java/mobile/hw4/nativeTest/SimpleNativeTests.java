@@ -1,7 +1,6 @@
-package mobile.hw3.nativetests;
+package mobile.hw4.nativeTest;
 
-import enums.mobile.PropertyFile;
-import mobile.hw3.Hooks;
+import appiumBase.Hooks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -10,18 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static enums.mobile.NativeElements.*;
-import static enums.mobile.NativeTitles.*;
+import static enums.mobile.enumsNative.NativeElements.*;
+import static enums.mobile.enumsNative.NativeTitles.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-import static utils.KeyBoardHelper.checkKeyBoardPresent;
+import static utils.appium.KeyBoardHelper.checkKeyBoardPresent;
 
 @Test(groups = "native")
 public class SimpleNativeTests extends Hooks {
-
-    protected SimpleNativeTests() {
-        super(PropertyFile.NATIVE);
-    }
 
     @Test(description = "Go to the \"Add Contact\" screen and check it content")
     public void simplestAddContactScreenTest() throws Exception {

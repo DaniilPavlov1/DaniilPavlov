@@ -1,4 +1,4 @@
-package enums.mobile;
+package enums.mobile.enumsWeb;
 
 public enum PageTitles {
 
