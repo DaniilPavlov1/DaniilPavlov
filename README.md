@@ -24,9 +24,9 @@ HW 4 Mobile TA
   4.	What’s wrong with our code? How to fix/improve it? Implement your suggestions.
 
     1. We should store our properties as objects in .json format.
-       That decision granted for us easily reuse predefined configs for test devices.
+       This decision granted for us easily reuse predefined configs for test devices.
 
-    2. We should make our tests be prepared for Jenkins so I've made testng .xml configs
+    2. We should make our tests be prepared for CI (Jenkins) so I've made testng .xml configs
        for running our tests by Maven by CMD, examples of commands:
        {
 
