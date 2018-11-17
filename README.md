@@ -27,8 +27,8 @@ HW 4 Mobile TA
        This decision granted for us easily reuse predefined configs for test devices.
 
     2. We should make our tests be prepared for CI (Jenkins) so I've made testng .xml configs
-       for running our tests by Maven by CMD, examples of commands: {
-
+       for running our tests by Maven by CMD, examples of commands:
+       {
         for native tests:
         mvn clean test -DsuiteXmlFile=/appium/spb_farm_android_nexus5s_native.xml
 
