@@ -36,5 +36,5 @@ HW 4 Mobile TA
         mvn clean test -DsuiteXmlFile=/appium/spb_farm_android_nexus5s_web.xml
     }
 
-    3.	We should replace (where possible) all hardcoded values to Enums or constants.
+    3. We should replace (where possible) all hardcoded values to Enums or constants.
 
