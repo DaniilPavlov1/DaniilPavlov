@@ -3,8 +3,8 @@ package enums.mobile;
 //this enum helps us to avoid hardcode
 public enum PropertyFile {
 
-    NATIVE("nativetests"),
-    WEB("webtests");
+    NATIVE("nativeTests"),
+    WEB("webTests");
 
     private String currentAppType;
     private String path = "src/main/resources/mobile/";

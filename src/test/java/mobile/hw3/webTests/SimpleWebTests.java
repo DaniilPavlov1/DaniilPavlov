@@ -1,4 +1,4 @@
-package mobile.hw3.webtests;
+package mobile.hw3.webTests;
 
 import enums.mobile.PropertyFile;
 import enums.mobile.WebSectionsLinks;

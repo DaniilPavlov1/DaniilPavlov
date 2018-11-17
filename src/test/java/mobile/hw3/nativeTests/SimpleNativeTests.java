@@ -1,4 +1,4 @@
-package mobile.hw3.nativetests;
+package mobile.hw3.nativeTests;
 
 import enums.mobile.PropertyFile;
 import mobile.hw3.Hooks;
